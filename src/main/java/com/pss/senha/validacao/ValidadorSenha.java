@@ -20,7 +20,7 @@ public final class ValidadorSenha {
         tratadores.add(new CaseSensitiveTratador(true));
         tratadores.add(new CaseSensitiveTratador(false));
         tratadores.add(new MaisUsadasTratador());
-        tratadores.add(new CpfTratador());
+        tratadores.add(new CPFTratador());
     }
 
     public ArrayList<String> validar(String senha) {

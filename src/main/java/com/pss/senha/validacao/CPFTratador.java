@@ -4,7 +4,7 @@ package com.pss.senha.validacao;
  *
  * @author Dalvan
  */
-public class CpfTratador extends TratadorSenha {
+public class CPFTratador extends TratadorSenha {
 
     @Override
     public String aceitaSenha(String senha) {
