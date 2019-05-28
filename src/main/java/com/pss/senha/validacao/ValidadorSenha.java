@@ -25,7 +25,7 @@ public final class ValidadorSenha {
 
     public ArrayList<String> validar(String senha) {
         for (TratadorSenha tratador : tratadores) {
-            erros.append(tratador.aceitaSenha(senha));
+            erros.append(tratador.validaSenha(senha));
         }
         if (erros.toString() == null) {
             return null;
