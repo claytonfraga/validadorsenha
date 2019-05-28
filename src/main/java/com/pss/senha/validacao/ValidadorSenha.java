@@ -24,6 +24,9 @@ public final class ValidadorSenha {
     }
 
     public ArrayList<String> validar(String senha) {
+        if (senha.isEmpty()) {
+            return new ArrayList<>(Arrays.asList("Informe uma senha;"));
+        }
         for (TratadorSenha tratador : tratadores) {
             erros.append(tratador.validaSenha(senha));
         }
