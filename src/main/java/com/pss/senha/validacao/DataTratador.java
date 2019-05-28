@@ -16,7 +16,7 @@ public final class DataTratador extends TratadorSenha {
             }
             Date data = df.parse(senha);
             return "A senha nao deve ser uma data;";
-        } catch (ParseException e) {
+        } catch (ParseException | StringIndexOutOfBoundsException e) {
             return "";
         }
     }
