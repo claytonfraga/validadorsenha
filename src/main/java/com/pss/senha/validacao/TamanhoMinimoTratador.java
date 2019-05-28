@@ -4,8 +4,8 @@ public final class TamanhoMinimoTratador extends TratadorSenha {
 
     @Override
     public String aceitaSenha(String senha) {
-        if (senha.length() <= 3) {
-            return "Senha deve ter mais que 3 caracteres;";
+        if (senha.length() <= 4) {
+            return "Senha deve ter mais que 4 caracteres;";
         }
         return "";
     }

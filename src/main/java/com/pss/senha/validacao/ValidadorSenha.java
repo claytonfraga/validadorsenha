@@ -31,6 +31,12 @@ public final class ValidadorSenha {
         }
         ArrayList<String> resultadosValidacao = new ArrayList<>(Arrays.asList(erros.toString().split(";")));
 
+        if (resultadosValidacao.size() == 1) {
+            if (resultadosValidacao.get(0).equals("")) {
+                resultadosValidacao.clear();
+            }
+        }
+
         for (String resultadoValidacao : resultadosValidacao) {
             System.out.println(resultadoValidacao);
         }

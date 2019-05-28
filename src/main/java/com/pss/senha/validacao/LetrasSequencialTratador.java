@@ -11,8 +11,10 @@ public final class LetrasSequencialTratador extends TratadorSenha {
         int inicio = 0;
         if (!"".equals(somenteLetras.trim())) {
             while (inicio <= somenteLetras.length()) {
-                if (sequencia.contains(somenteLetras.substring(inicio, somenteLetras.length()))
-                        || new StringBuilder(sequencia).reverse().toString().contains(somenteLetras.substring(inicio, somenteLetras.length()))) {
+                if ((sequencia.contains(somenteLetras.substring(inicio, somenteLetras.length()).trim())
+                        || new StringBuilder(sequencia).reverse().toString().contains(somenteLetras.substring(inicio, somenteLetras.length()).trim()))
+                        && somenteLetras.substring(inicio, somenteLetras.length()).trim().length() >= 3) {
+
                     return "Senha nao deve possuir uma sequencia de letras;";
                 }
                 inicio += 1;
