@@ -8,7 +8,6 @@ public final class Principal {
         
         ValidadorSenha validador = new ValidadorSenha();
 
-        //String senha = "aw123abc";
         String senha = "xfq*-8A";
 
         validador.validar(senha);

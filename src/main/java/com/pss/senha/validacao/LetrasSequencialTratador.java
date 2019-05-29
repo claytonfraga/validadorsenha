@@ -1,6 +1,6 @@
 package com.pss.senha.validacao;
 
-public final class LetrasSequencialTratador extends TratadorSenha {
+final class LetrasSequencialTratador extends TratadorSenha {
 
     @Override
     public String aceitaSenha(String senha) {

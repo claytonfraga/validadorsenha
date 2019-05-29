@@ -5,7 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public final class DataTratador extends TratadorSenha {
+final class DataTratador extends TratadorSenha {
 
     @Override
     public String aceitaSenha(String senha) {

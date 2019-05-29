@@ -1,6 +1,6 @@
 package com.pss.senha.validacao;
 
-public final class CaseSensitiveTratador extends TratadorSenha {
+final class CaseSensitiveTratador extends TratadorSenha {
 
     private final boolean maiuscula;
 

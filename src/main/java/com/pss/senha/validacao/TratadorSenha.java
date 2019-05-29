@@ -1,6 +1,6 @@
 package com.pss.senha.validacao;
 
-public abstract class TratadorSenha {
+abstract class TratadorSenha {
 
     public final String validaSenha(String senha) {
         if (senha != null) {

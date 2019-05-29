@@ -2,7 +2,7 @@ package com.pss.senha.validacao;
 
 import java.util.TreeSet;
 
-public final class MaisUsadasTratador extends TratadorSenha {
+final class MaisUsadasTratador extends TratadorSenha {
 
     @Override
     public String aceitaSenha(String senha) {

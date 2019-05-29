@@ -76,8 +76,6 @@ public class ValidadorSenhaTest {
     }
     @Test
     public void senhaVazia() {
-        //CPF Gerado em https://www.4devs.com.br/gerador_de_cpf
-
         String senha = "";
 
         ArrayList<String> resultado = validador.validar(senha);

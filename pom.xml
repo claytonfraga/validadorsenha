@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.pss</groupId>
     <artifactId>ValidadorSenha</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.01-SNAPSHOT</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -18,7 +18,8 @@
         <sonar.tests>src/test/java</sonar.tests>
         <sonar.junit.reportPaths>${project.build.directory}/surefire-reports</sonar.junit.reportPaths>
         <!--sonar.jacoco.reportPaths>${jacoco.report.ut},${jacoco.report.it}</sonar.jacoco.reportPaths-->
-        <sonar.jacoco.reportPaths>${jacoco.report.ut}</sonar.jacoco.reportPaths>            
+        <!--sonar.jacoco.reportPaths>${jacoco.report.ut}</sonar.jacoco.reportPaths-->
+        <sonar.coverage.jacoco.xmlReportPaths>${jacoco.report.ut}</sonar.coverage.jacoco.xmlReportPaths>
     </properties>
     <profiles>
         <profile>

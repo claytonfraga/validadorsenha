@@ -1,6 +1,6 @@
 package com.pss.senha.validacao;
 
-public final class TamanhoMaximoTratador extends TratadorSenha {
+final class TamanhoMaximoTratador extends TratadorSenha {
 
     @Override
     public String aceitaSenha(String senha) {
