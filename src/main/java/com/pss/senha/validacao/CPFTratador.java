@@ -4,7 +4,11 @@ package com.pss.senha.validacao;
  *
  * @author Dalvan
  */
-public class CPFTratador extends TratadorSenha {
+class CPFTratador extends TratadorSenha {
+
+    private int sm = 0;
+    private int r;
+    private int peso = 10;
 
     @Override
     public String aceitaSenha(String senha) {
@@ -12,48 +16,46 @@ public class CPFTratador extends TratadorSenha {
         if (cpf.length() != 11) {
             return "";
         } else {
-            char dig10, dig11;
-            int sm, i, r, num, peso;
+            char dig10 = 0;
+            char dig11 = 0;
 
-            sm = 0;
-            peso = 10;
-            for (i = 0; i < 9; i++) {
-
-                num = (int) (cpf.charAt(i) - 48);
-                sm = sm + (num * peso);
-                peso = peso - 1;
-            }
+            sm = ajustaPeso(cpf, sm, peso, 9);
 
             r = 11 - (sm % 11);
-            if ((r == 10) || (r == 11)) {
-                dig10 = '0';
-            } else {
-                dig10 = (char) (r + 48);
-            }
+            dig10 = defineDigito(dig10, r);
 
             sm = 0;
             peso = 11;
-            for (i = 0; i < 10; i++) {
-                num = (int) (cpf.charAt(i) - 48);
-                sm = sm + (num * peso);
-                peso = peso - 1;
-            }
+            sm = ajustaPeso(cpf, sm, peso, 10);
 
             r = 11 - (sm % 11);
-            if ((r == 10) || (r == 11)) {
-                dig11 = '0';
-            } else {
-                dig11 = (char) (r + 48);
-            }
+            dig11 = defineDigito(dig11, r);
 
             if ((dig10 == cpf.charAt(9)) && (dig11 == cpf.charAt(10))) {
                 return "Senha não pode conter um CPF";
             } else {
                 return "";
             }
-
         }
 
     }
 
+    private int ajustaPeso(String cpf, int sm, int peso, int tamanho) {
+        int num;
+        for (int i = 0; i < tamanho; i++) {
+            num = (int) (cpf.charAt(i) - 48);
+            sm = sm + (num * peso);
+            peso = peso - 1;
+        }
+        return sm;
+    }
+
+    private char defineDigito(char digito, int r) {
+        if ((r == 10) || (r == 11)) {
+            digito = '0';
+        } else {
+            digito = (char) (r + 48);
+        }
+        return digito;
+    }
 }
