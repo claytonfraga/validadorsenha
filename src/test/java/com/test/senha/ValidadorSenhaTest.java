@@ -54,12 +54,12 @@ public class ValidadorSenhaTest {
     }
 
     @Test
-    public void senhaCPFTest() {
+    public void senhaCPF1Test() {
         //CPF Gerado em https://www.4devs.com.br/gerador_de_cpf
         String senha = "033.926.480-27";
 
         List<String> resultado = validador.validar(senha);
-        assertEquals(4, resultado.size());
+        assertEquals(5, resultado.size());
     }
 
     @Test
@@ -72,10 +72,52 @@ public class ValidadorSenhaTest {
     }
 
     @Test
+    public void senhaCPF3Test() {
+        //CPF Gerado em https://www.4devs.com.br/gerador_de_cpf
+        String senha = "953.413.810-09";
+
+        List<String> resultado = validador.validar(senha);
+        assertEquals(5, resultado.size());
+    }
+
+    @Test
+    public void senhaCPF4Test() {
+        //CPF Gerado em https://www.4devs.com.br/gerador_de_cpf
+        String senha = "241.284.260-40";
+
+        List<String> resultado = validador.validar(senha);
+        assertEquals(5, resultado.size());
+    }
+
+    @Test
     public void senhaVazia() {
         String senha = "";
 
         List<String> resultado = validador.validar(senha);
         assertEquals(1, resultado.size());
+    }
+
+    @Test
+    public void senha3Digitos() {
+        String senha = "x*1";
+
+        List<String> resultado = validador.validar(senha);
+        assertEquals(2, resultado.size());
+    }
+
+    @Test
+    public void senha4Digitos() {
+        String senha = "x*1A";
+
+        List<String> resultado = validador.validar(senha);
+        assertEquals(1, resultado.size());
+    }
+
+    @Test
+    public void senhaCorreta() {
+        String senha = "xfq*-8A";
+
+        List<String> resultado = validador.validar(senha);
+        assertEquals(0, resultado.size());
     }
 }

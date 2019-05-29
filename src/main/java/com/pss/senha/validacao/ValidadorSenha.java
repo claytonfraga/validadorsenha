@@ -30,7 +30,7 @@ public final class ValidadorSenha {
 
     public List<String> validar(String senha) {
         BasicConfigurator.configure();
-        Logger.getRootLogger().setLevel(Level.INFO); //changing log level
+        Logger.getRootLogger().setLevel(Level.INFO);
 
         if (senha.isEmpty()) {
             return new ArrayList<>(Arrays.asList("Informe uma senha;"));
@@ -38,12 +38,10 @@ public final class ValidadorSenha {
         for (TratadorSenha tratador : tratadores) {
             erros.append(tratador.validaSenha(senha));
         }
-        if (erros.toString() == null) {
-            return new ArrayList<>();
-        }
+
         ArrayList<String> resultadosValidacao = new ArrayList<>(Arrays.asList(erros.toString().split(";")));
 
-        if (resultadosValidacao.size() == 1 && resultadosValidacao.get(0).equals("")) {
+        if (resultadosValidacao.get(0).equals("")) {
             resultadosValidacao.clear();
         }
 
