@@ -2,11 +2,16 @@ package com.pss.senha.validacao;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 public final class ValidadorSenha {
 
     private final ArrayList<TratadorSenha> tratadores = new ArrayList<>();
     private final StringBuilder erros = new StringBuilder();
+    private static final Logger logger = Logger.getLogger(ValidadorSenha.class);
 
     public ValidadorSenha() {
 
@@ -23,7 +28,10 @@ public final class ValidadorSenha {
         tratadores.add(new CPFTratador());
     }
 
-    public ArrayList<String> validar(String senha) {
+    public List<String> validar(String senha) {
+        BasicConfigurator.configure();
+        Logger.getRootLogger().setLevel(Level.INFO); //changing log level
+
         if (senha.isEmpty()) {
             return new ArrayList<>(Arrays.asList("Informe uma senha;"));
         }
@@ -31,18 +39,16 @@ public final class ValidadorSenha {
             erros.append(tratador.validaSenha(senha));
         }
         if (erros.toString() == null) {
-            return null;
+            return new ArrayList<>();
         }
         ArrayList<String> resultadosValidacao = new ArrayList<>(Arrays.asList(erros.toString().split(";")));
 
-        if (resultadosValidacao.size() == 1) {
-            if (resultadosValidacao.get(0).equals("")) {
-                resultadosValidacao.clear();
-            }
+        if (resultadosValidacao.size() == 1 && resultadosValidacao.get(0).equals("")) {
+            resultadosValidacao.clear();
         }
 
         for (String resultadoValidacao : resultadosValidacao) {
-            System.out.println(resultadoValidacao);
+            logger.info(resultadoValidacao);
         }
 
         return resultadosValidacao;

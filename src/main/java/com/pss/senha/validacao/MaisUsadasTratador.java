@@ -31,19 +31,14 @@ final class MaisUsadasTratador extends TratadorSenha {
         maisUsadas.add("felipe");
         maisUsadas.add("brasil");
         maisUsadas.add("felicidade");
-        maisUsadas.add("1234567");
         maisUsadas.add("teste123");
         maisUsadas.add("mariana");
-        maisUsadas.add("123456");
-        maisUsadas.add("12345");
-        maisUsadas.add("123123");
         maisUsadas.add("000000");
         maisUsadas.add("password");
         maisUsadas.add("qwerty");
         maisUsadas.add("asdfgh");
         maisUsadas.add("zxcvbnm");
         maisUsadas.add("qazwsx");
-        maisUsadas.add("abc123");
         maisUsadas.add("blink182");
         maisUsadas.add("lol123");
         maisUsadas.add("7777777");
@@ -57,25 +52,12 @@ final class MaisUsadasTratador extends TratadorSenha {
         maisUsadas.add("admin");
         maisUsadas.add("hotmail");
         maisUsadas.add("babygirl");
-        maisUsadas.add("123456");
-        maisUsadas.add("password");
-        maisUsadas.add("123456789");
-        maisUsadas.add("12345678");
-        maisUsadas.add("12345");
         maisUsadas.add("111111");
-        maisUsadas.add("1234567");
         maisUsadas.add("sunshine");
-        maisUsadas.add("qwerty");
-        maisUsadas.add("iloveyou");
         maisUsadas.add("princess");
-        maisUsadas.add("admin");
         maisUsadas.add("welcome");
-        maisUsadas.add("666666");
-        maisUsadas.add("abc123");
         maisUsadas.add("football");
-        maisUsadas.add("123123");
         maisUsadas.add("monkey");
-        maisUsadas.add("654321");
         maisUsadas.add("!@#$%^&*");
         maisUsadas.add("charlie");
         maisUsadas.add("aa123456");
@@ -99,7 +81,6 @@ final class MaisUsadasTratador extends TratadorSenha {
         maisUsadas.add("everton");
         maisUsadas.add("jordan23");
         maisUsadas.add("santos");
-        maisUsadas.add("flamengo");
         maisUsadas.add("esporte");
         maisUsadas.add("sport");
         maisUsadas.add("guest");
@@ -112,7 +93,6 @@ final class MaisUsadasTratador extends TratadorSenha {
         maisUsadas.add("princesa ");
         maisUsadas.add("rex");
         maisUsadas.add("mimi ");
-        maisUsadas.add("mel ");
         maisUsadas.add("kito ");
         maisUsadas.add("nino ");
         maisUsadas.add("belinha ");
@@ -173,7 +153,6 @@ final class MaisUsadasTratador extends TratadorSenha {
         maisUsadas.add("amy");
         maisUsadas.add("cindy");
         maisUsadas.add("dante");
-        maisUsadas.add("1234567");
 
         if (maisUsadas.contains(senha.toLowerCase())) {
             return "Sua senha esta na lista de senhas mais usadas no mundo ate o ano de 2018;";

@@ -4,11 +4,12 @@ final class SomenteNumerosTratador extends TratadorSenha {
 
     @Override
     public String aceitaSenha(String senha) {
-        try {
-            Long numeroQualquer = new Long(senha);
+        String somenteNumeros = senha.replaceAll("[^0-9]", " ").trim();
+
+        if (somenteNumeros.length() == senha.length()) {
             return "Senha deve possuir numeros, letras minusculas e maiusculas e símbolos;";
-        } catch (NumberFormatException e) {
-            return "";
         }
+        return "";
+
     }
 }
