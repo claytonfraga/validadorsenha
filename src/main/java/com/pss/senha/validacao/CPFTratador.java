@@ -7,7 +7,6 @@ package com.pss.senha.validacao;
 class CPFTratador extends TratadorSenha {
 
     private int sm = 0;
-    private int r;
     private int peso = 10;
 
     @Override
@@ -16,6 +15,7 @@ class CPFTratador extends TratadorSenha {
         if (cpf.length() != 11) {
             return "";
         } else {
+            int r;
             char dig10 = 0;
             char dig11 = 0;
 
@@ -43,7 +43,7 @@ class CPFTratador extends TratadorSenha {
     private int ajustaPeso(String cpf, int sm, int peso, int tamanho) {
         int num;
         for (int i = 0; i < tamanho; i++) {
-            num = (int) (cpf.charAt(i) - 48);
+            num = (cpf.charAt(i) - 48);
             sm = sm + (num * peso);
             peso = peso - 1;
         }
