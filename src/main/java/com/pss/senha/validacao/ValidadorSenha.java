@@ -32,11 +32,15 @@ public final class ValidadorSenha {
         BasicConfigurator.configure();
         Logger.getRootLogger().setLevel(Level.INFO);
 
+        if (senha == null) {
+            return new ArrayList<>(Arrays.asList("Informe uma senha;"));
+        }
+
         if (senha.isEmpty()) {
             return new ArrayList<>(Arrays.asList("Informe uma senha;"));
         }
         for (TratadorSenha tratador : tratadores) {
-            erros.append(tratador.validaSenha(senha));
+            erros.append(tratador.verificar(senha));
         }
 
         ArrayList<String> resultadosValidacao = new ArrayList<>(Arrays.asList(erros.toString().split(";")));

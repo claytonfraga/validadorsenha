@@ -10,7 +10,7 @@ class CPFTratador extends TratadorSenha {
     private int peso = 10;
 
     @Override
-    public String aceitaSenha(String senha) {
+    public String verificar(String senha) {
         String cpf = senha.replaceAll("[^0-9]", "");
         if (cpf.length() != 11) {
             return "";

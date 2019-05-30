@@ -144,5 +144,12 @@ public class ValidadorSenhaTest {
         List<String> resultado = validador.validar(senha);
         assertEquals(2, resultado.size());
     }
+    @Test
+    public void senhaNula() {
+        String senha = null;
+
+        List<String> resultado = validador.validar(senha);
+        assertEquals(1, resultado.size());
+    }
 
 }

@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 final class CaracterEspecialTratador extends TratadorSenha {
 
     @Override
-    public String aceitaSenha(String senha) {
+    public String verificar(String senha) {
         Pattern especiais = Pattern.compile("[!@#$%&*/()_+=|<>?{}\\[\\]~-]");
         Matcher temEspecial = especiais.matcher(senha);
         if (!temEspecial.find()) {

@@ -9,7 +9,7 @@ final class CaseSensitiveTratador extends TratadorSenha {
     }
 
     @Override
-    public String aceitaSenha(String senha) {
+    public String verificar(String senha) {
 
         if (maiuscula) {
             boolean temMaiusculas = !senha.equals(senha.toLowerCase());

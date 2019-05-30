@@ -3,7 +3,7 @@ package com.pss.senha.validacao;
 final class SomenteNumerosTratador extends TratadorSenha {
 
     @Override
-    public String aceitaSenha(String senha) {
+    public String verificar(String senha) {
         String somenteNumeros = senha.replaceAll("[^0-9]", " ").trim();
 
         if (somenteNumeros.length() == senha.length()) {

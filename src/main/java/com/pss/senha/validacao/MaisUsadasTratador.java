@@ -5,7 +5,7 @@ import java.util.TreeSet;
 final class MaisUsadasTratador extends TratadorSenha {
 
     @Override
-    public String aceitaSenha(String senha) {
+    public String verificar(String senha) {
 
         TreeSet<String> maisUsadas = new TreeSet<>();
         maisUsadas.add("1234567");

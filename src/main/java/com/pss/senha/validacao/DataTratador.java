@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 final class DataTratador extends TratadorSenha {
 
     @Override
-    public String aceitaSenha(String senha) {
+    public String verificar(String senha) {
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         try {
             if (!senha.contains("/")) {

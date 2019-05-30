@@ -3,7 +3,7 @@ package com.pss.senha.validacao;
 final class NumeroSequencialTratador extends TratadorSenha {
 
     @Override
-    public String aceitaSenha(String senha) {
+    public String verificar(String senha) {
 
         String somenteNumeros = senha.replaceAll("[^0-9]", " ");
         String sequencia = "0123456789999977777888866666555554444433333222221111100000";

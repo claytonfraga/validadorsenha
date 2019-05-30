@@ -3,7 +3,7 @@ package com.pss.senha.validacao;
 final class LetrasSequencialTratador extends TratadorSenha {
 
     @Override
-    public String aceitaSenha(String senha) {
+    public String verificar(String senha) {
 
         String somenteLetras = senha.replaceAll("[^A-Za-z]+", " ");
         String sequencia = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
