@@ -120,4 +120,29 @@ public class ValidadorSenhaTest {
         List<String> resultado = validador.validar(senha);
         assertEquals(0, resultado.size());
     }
+
+    @Test
+    public void senhaSequenciaLetras() {
+        String senha = "abc*1A";
+
+        List<String> resultado = validador.validar(senha);
+        assertEquals(1, resultado.size());
+    }
+
+    @Test
+    public void senhaSequenciaLetras1() {
+        String senha = "cba*1A";
+
+        List<String> resultado = validador.validar(senha);
+        assertEquals(1, resultado.size());
+    }
+
+    @Test
+    public void senhaSequenciaLetrasEnumeros() {
+        String senha = "9xyzA123x*";
+
+        List<String> resultado = validador.validar(senha);
+        assertEquals(2, resultado.size());
+    }
+
 }
