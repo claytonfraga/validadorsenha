@@ -10,7 +10,6 @@ import org.apache.log4j.Logger;
 public final class ValidadorSenha {
 
     private final ArrayList<TratadorSenha> tratadores = new ArrayList<>();
-    private final StringBuilder erros = new StringBuilder();
     private static final Logger logger = Logger.getLogger(ValidadorSenha.class);
 
     public ValidadorSenha() {
@@ -26,11 +25,13 @@ public final class ValidadorSenha {
         tratadores.add(new CaseSensitiveTratador(false));
         tratadores.add(new MaisUsadasTratador());
         tratadores.add(new CPFTratador());
+
+        BasicConfigurator.configure();
+        Logger.getRootLogger().setLevel(Level.INFO);
+
     }
 
     public List<String> validar(String senha) {
-        BasicConfigurator.configure();
-        Logger.getRootLogger().setLevel(Level.INFO);
 
         if (senha == null) {
             return new ArrayList<>(Arrays.asList("Informe uma senha;"));
@@ -39,18 +40,15 @@ public final class ValidadorSenha {
         if (senha.isEmpty()) {
             return new ArrayList<>(Arrays.asList("Informe uma senha;"));
         }
+
+        ArrayList<String> resultadosValidacao = new ArrayList<>();
+
         for (TratadorSenha tratador : tratadores) {
-            erros.append(tratador.verificar(senha));
-        }
-
-        ArrayList<String> resultadosValidacao = new ArrayList<>(Arrays.asList(erros.toString().split(";")));
-
-        if (resultadosValidacao.get(0).equals("")) {
-            resultadosValidacao.clear();
-        }
-
-        for (String resultadoValidacao : resultadosValidacao) {
-            logger.info(resultadoValidacao);
+            String resultado = tratador.verificar(senha);
+            if (!resultado.isEmpty()) {
+                resultadosValidacao.add(resultado);
+                logger.info(resultado);
+            }
         }
 
         return resultadosValidacao;

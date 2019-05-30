@@ -32,7 +32,7 @@ class CPFTratador extends TratadorSenha {
             dig11 = defineDigito(dig11, r);
 
             if ((dig10 == cpf.charAt(9)) && (dig11 == cpf.charAt(10))) {
-                return "Senha não pode conter um CPF";
+                return "Senha não pode conter um CPF;";
             } else {
                 return "";
             }
