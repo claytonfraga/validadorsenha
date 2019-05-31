@@ -25,7 +25,12 @@ public final class ValidadorSenha {
         tratadores.add(new CaseSensitiveTratador(false));
         tratadores.add(new MaisUsadasTratador());
         tratadores.add(new CPFTratador());
-
+        //Tratadores adicionados por Thiago
+        tratadores.add(new EmailTratador());
+        tratadores.add(new LetrasAcentuadasTratador());
+        tratadores.add(new WhiteSpaceTratador());
+        tratadores.add(new NumeroDeCaracteresDistintosTratador(4, true));
+        
         BasicConfigurator.configure();
         Logger.getRootLogger().setLevel(Level.INFO);
 
