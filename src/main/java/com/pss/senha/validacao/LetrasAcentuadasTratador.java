@@ -15,15 +15,17 @@ public class LetrasAcentuadasTratador extends TratadorSenha {
 
     @Override
     String verificar(String senha) {
-          if (temAcentos(senha)) {
-              return "Senha não deve conter letras acentuadas;";
-          }
-          return "";
+        if (temAcentos(senha)) {
+            return "Senha não deve conter letras acentuadas;";
+        }
+        return "";
     }
 
     private String removeAcentos(String text) {
-        return text == null ? null
-                : Normalizer.normalize(text, Normalizer.Form.NFD)
+        if (text == null) {
+            throw new IllegalArgumentException("Texto e nulo!");
+        }
+        return Normalizer.normalize(text, Normalizer.Form.NFD)
                 .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
     }
 
