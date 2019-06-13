@@ -9,7 +9,7 @@ package com.pss.senha.validacao;
  *
  * @author Thiago
  */
-public class NumeroDeCaracteresDistintosTratador extends TratadorSenha{
+public class NumeroDeCaracteresDistintosTratador extends TratadorSenha {
 
     private int minimo;
     private boolean caseSensitive;
@@ -20,22 +20,22 @@ public class NumeroDeCaracteresDistintosTratador extends TratadorSenha{
         this.minimo = minimo;
         this.caseSensitive = caseSensitive;
     }
-    
-    
-    
+
     @Override
     String verificar(String senha) {
-        if (countUniqueCharacters(senha)<minimo) {
-            return "A senha deve conter no minimo "+minimo+" caracteres distintos;";
+        if (countUniqueCharacters(senha) < minimo) {
+            return "A senha deve conter no minimo " + minimo + " caracteres distintos;";
         }
         return "";
     }
-    
-    
+
     public int countUniqueCharacters(String input) {
         //Define se é case sensitive
-        String novoInput= caseSensitive ? input : input.toLowerCase();
-        
+        String novoInput = input;
+        if (caseSensitive) {
+            novoInput = input.toLowerCase();
+        }
+
         boolean[] isItThere = new boolean[Character.MAX_VALUE];
         for (int i = 0; i < novoInput.length(); i++) {
             isItThere[novoInput.charAt(i)] = true;
@@ -47,8 +47,16 @@ public class NumeroDeCaracteresDistintosTratador extends TratadorSenha{
                 count++;
             }
         }
-
         return count;
     }
-    
+
+    public long countUniqueCharacters2(String input) {
+        String novoInput = input;
+        if (caseSensitive) {
+            novoInput = input.toLowerCase();
+        }
+        return novoInput.chars()
+                .distinct()
+                .count();
+    }
 }
